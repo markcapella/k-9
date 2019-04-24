@@ -266,12 +266,17 @@ public class OpenPgpApi {
 
     // GET_SIGN_KEY_ID
     public static final String EXTRA_USER_ID = "user_id";
+    public static final String EXTRA_PRESELECT_KEY_ID = "preselect_key_id";
+    public static final String EXTRA_SHOW_AUTOCRYPT_HINT = "show_autocrypt_hint";
 
     // GET_KEY
     public static final String EXTRA_KEY_ID = "key_id";
     public static final String EXTRA_MINIMIZE = "minimize";
     public static final String EXTRA_MINIMIZE_USER_ID = "minimize_user_id";
     public static final String RESULT_KEY_IDS = "key_ids";
+
+    // AUTOCRYPT_KEY_TRANSFER
+    public static final String ACTION_AUTOCRYPT_KEY_TRANSFER = "autocrypt_key_transfer";
 
     // BACKUP
     public static final String EXTRA_BACKUP_SECRET = "backup_secret";
@@ -407,11 +412,7 @@ public class OpenPgpApi {
 
         // don't serialize async tasks!
         // http://commonsware.com/blog/2012/04/20/asynctask-threading-regression-confirmed.html
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
-        } else {
-            task.execute((Void[]) null);
-        }
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
         return task;
     }
@@ -421,11 +422,7 @@ public class OpenPgpApi {
 
         // don't serialize async tasks!
         // http://commonsware.com/blog/2012/04/20/asynctask-threading-regression-confirmed.html
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
-        } else {
-            task.execute((Void[]) null);
-        }
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
         return task;
     }
@@ -435,11 +432,7 @@ public class OpenPgpApi {
 
         // don't serialize async tasks!
         // http://commonsware.com/blog/2012/04/20/asynctask-threading-regression-confirmed.html
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
-        } else {
-            task.execute((Void[]) null);
-        }
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
     }
 
     public static class OpenPgpDataResult<T> {
